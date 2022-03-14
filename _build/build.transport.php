@@ -14,7 +14,7 @@ set_time_limit(0);
 define('PKG_NAME','MODX Dark Theme');
 define('PKG_NAMESPACE','modxdarktheme');
 define('PKG_VERSION','1.0.0');
-define('PKG_RELEASE','beta1');
+define('PKG_RELEASE','pl');
 
 /* override with your own defines here (see build.config.sample.php) */
 require_once dirname(dirname(__FILE__)) . '/config.core.php';
@@ -24,7 +24,7 @@ $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
     'root' => $root,
     'build' => $root . '_build/',
-    'docs' => $root.'docs/',
+    'docs' => $root.'core/components/modxdarktheme/docs/',
     'templates' => $root.'manager/templates/darktheme',
     'resolvers' => $root . '_build/resolvers/',
 );
