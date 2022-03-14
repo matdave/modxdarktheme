@@ -24,7 +24,7 @@ if ($object->xpdo) {
 
                 $value = $setting->get('value');
                 if($value == 'default'){
-                    $setting->set('value', 'trendy');
+                    $setting->set('value', 'darktheme');
                     $setting->save();
                 }
 
