@@ -1,0 +1,210 @@
+// Main colors
+$colorSplash: #00decc;
+$colorSplashLight: lighten($colorSplash, 42.5%); // unused
+$colorSplashMedium: #32AB9A;
+$colorSplashDark: darken($colorSplash, 20%);
+$colorSplashDesaturated: lighten(desaturate($colorSplash,100%), 20%); // unused
+$colorSplashContrast: #FFFFFF; // needs much more adaption, should be used as text color for elements with $colorSplash background
+$primary1: #32AB9A;
+$primary2: #00948E;
+$lightestGray: #484f58;
+$lighterGray: #484f58;
+$lightGray: #484f58;
+$softGray: #484f58;
+$mediumGray: #212432;
+$darkGray: #161b22;
+$darkestGray: #0d1117; // a blueish dark gray
+$white: #FFF;
+$black: #010409; // generate the black from the $colorSplash
+$yellow: #FFEA80;
+$orange: #F49548;
+$red: #BE0000;
+$green: #6CB24A;
+$blue: #3697cd; // default theme $colorSplash
+
+// Brand colors
+$brandBg: $black;
+$brandHover: $darkestGray;
+$brandSelectedBg: darken($brandHover, 3%);
+$brandSelectedColor: $colorSplash;
+
+// Backgrounds
+$mainBg: $black;
+$lightBg: $darkGray;
+$mediumBg: $darkestGray;
+$darkBg: $darkestGray;
+
+// Borders
+$borderColor: $black;
+$borderColorHover: $colorSplash;
+$borderColorFocus: darken($colorSplash, 6%);
+$borderColorActive: darken($colorSplash, 6%);
+$borderColorDisabled: $borderColor;
+$borderRadius: 3px;
+
+// Shadows
+$boxShadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+$boxShadowBig: 0 0 15px 0 rgba(0,0,0,0.2);
+$shadowBorder: 0 0 0 1px $borderColor;
+$shadowBorderField: 0 0 0 1px $borderColor;
+$shadowBorderDark: 0 0 0 1px $softGray;
+$shadowBorderHover: 0 0 0 1px $borderColorHover;
+$shadowBorderFocus: 0 0 0 1px $borderColorFocus;
+$shadowBorderActive: 0 0 0 1px $borderColorActive;
+$shadowBorderDisabled: 0 0 0 1px $borderColorDisabled;
+
+// Grids
+$gridsorted: $darkestGray;
+$griddivider: $black;
+$gridrowalt: $darkGray;
+$gridHeaderTxtColor: $white;
+$gridHeaderBgColor: $darkGray;
+$gridHeaderBtnBgColor: $darkestGray;
+$gridHeaderBtnBgHoverColor: $black;
+
+// Form field colors
+$coreFieldBg: $darkestGray;
+$coreFieldLabelColor: $white;
+$coreFieldDescColor: $white;
+
+// Buttons
+$buttonBg: $black;
+$buttonBgHover: $colorSplash;
+$buttonBgActive: darken($colorSplash, 6%);
+$buttonBgDisabled: $black;
+$buttonColor: $white;
+$buttonColorHover: $black;
+$buttonColorActive: $black;
+$buttonColorDisabled: darken($buttonColor, 20%);
+$buttonColorPrimary: $black;
+$buttonColorPrimaryHover: $black;
+$buttonColorPrimaryActive: $black;
+$buttonColorPrimaryDisabled: $black;
+$buttonPrimaryBg1: $primary1;
+$buttonPrimaryBg2: $primary2;
+$buttonPrimaryBg1Hover: darken($buttonPrimaryBg1, 6%);
+$buttonPrimaryBg2Hover: darken($buttonPrimaryBg2, 6%);
+$buttonPrimaryBg1Active: darken($buttonPrimaryBg1, 12%);
+$buttonPrimaryBg2Active: darken($buttonPrimaryBg2, 12%);
+
+// Context menus
+$menuBg: $brandBg;
+$menuBorder: 1px solid $borderColor;
+$menuBorderRadius: $borderRadius;
+$menuBoxShadow: $boxShadow;
+$menuSelectedBg: #30759c;
+$menuSelectedColor: $brandBg;
+$menuTextColor: $white;
+$menuSeparatorColor: $borderColor;
+
+// ComboBox dropdown menus
+$dropdownBg: $black;
+$dropdownSelectedBg: $darkestGray;
+$dropdownTextColor: $white;
+$dropdownBorder: $black;
+
+// Tree menus
+$treeText: $white;
+$tipText: $white;
+$mainText: $white;
+$headerText: $white;
+$treeColor: #828a94;
+$treeColorDesaturated: lighten(desaturate($treeColor,100%), 25%);
+$treeColor_2: #728DA7;
+$treePseudoRootBg: $dropdownSelectedBg;
+$treePseudoRootColor: $dropdownTextColor;
+$treePseudoRootOverBg: $dropdownBg;
+$treePseudoRootOverColor: $dropdownTextColor;
+
+$iconColor: $treeText;
+$unpublished: $treeText;
+
+$deactivatedTextColor: lighten($treeColor, 35%); // do not use 50% here - makes base color nearly invisible
+$disabledTextColor: $deactivatedTextColor;
+
+$hidden: lighten($treeText, 10%) !important;
+$unpubText: italic;
+// locked is already signaled with lock-icon, no need to use other semantic style here
+// as italic is used for "unpublished"
+$lockedText: inherit; // italic;
+
+$delTextColor: fade-out(darken(lighten(desaturate($red,50%), 33%), 25%), 0.5) !important;
+$delTextStyle: normal;
+$delTextDeco: line-through;
+
+$treeDivider: #404040;
+
+// Top navigation colors
+$navbarBg: $darkestGray; // unused
+$navbarHover: $darkGray; // unused
+$navbarDrop: $navbarBg; // unused
+$navbarText: $white;
+$navbarBorder: $darkestGray;
+$subnavBg: $darkestGray;
+$subnavBgHover: $darkGray;
+$subnavBorder: $darkestGray;
+$subnavSepBorder: $subnavBorder;
+$subnavTitleColor: #C9D4E1;
+$subnavDescriptionColor: #5ABCE5;
+
+$searchResultsBg: $subnavBg;
+$searchResultsBgHover: $subnavBgHover;
+$searchResultsHeadingColor: $subnavDescriptionColor;
+$searchResultsColor: $subnavTitleColor;
+
+// Tabs
+$tabStripBg: transparent;
+$tabActiveBg: $darkestGray;
+$tabActiveBgHover: $darkGray;
+$tabActiveText: $colorSplashMedium;
+$tabInactiveBg: transparent;
+$tabInactiveBgHover: transparent;
+$tabInactiveText: $colorSplash;
+$tabText: $colorSplash;
+$tabTextHover: $colorSplashDark;
+
+// Windows
+$winHeaderBg: $darkestGray;
+$winHeaderBorderColor: $darkGray;
+$winBodyBg: $darkGray;
+$winFooterBg: $darkestGray;
+$winFooterBorderColor: $darkGray;
+
+// Font stacks
+$bodyfonts: 'Helvetica Neue', Helvetica, Arial, Tahoma, sans-serif;
+$bodyFontSize: 13px;
+$altfonts: titilliumregular, $bodyfonts; // unused
+$altfontslight: titilliumlight, $bodyfonts; // unused
+$headfonts: $bodyfonts;
+$codefonts: "Courier New", Courier, monospace;
+$tabFont: 14px $bodyfonts;
+$buttonfonts: $bodyfonts;
+$treePseudoRootFont: normal 14px/35px $headfonts;
+$treeNodeFont: normal 13px/22px $bodyfonts;
+$baseText:   normal 13px/1.4 $bodyfonts;
+$baseTextHeight: 13px * 1.4;
+$fontSmall:  normal 11px $bodyfonts;
+$fontMedium: normal 12px $bodyfonts;
+$fontNormal: normal $bodyFontSize $bodyfonts;
+$fontNavbar: normal $bodyFontSize $headfonts;
+$fontH2:     normal 25px $headfonts;
+$fontH3:     bold 15px $headfonts;
+
+// Responsive breakpoints
+$mobile: new-breakpoint(max-width 640px 4);
+$tabletP: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 960px 12);
+$tabletL: new-breakpoint(max-width 1024px 12);
+$cinema: new-breakpoint(max-width 1400px 12);
+
+$gtMobile: new-breakpoint(min-width 641px 12);
+$gtTabletP: new-breakpoint(min-width 769px 12);
+$gtDesktop: new-breakpoint(min-width 961px 12);
+$gtTabletL: new-breakpoint(min-width 1025px 12);
+$gtCinema: new-breakpoint(min-width 1401px 12);
+
+// Path for background-images
+$imgPath: '../images/';
+
+// Max width
+$max-width: 1200px;

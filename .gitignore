@@ -31,3 +31,5 @@ npm-debug.log
 package-lock.json
 
 core/components/modxdarktheme/model/vendor
+/manager/templates/darktheme/css/
+/manager/templates/darktheme/fonts/
