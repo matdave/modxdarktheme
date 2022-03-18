@@ -1,4 +1,7 @@
 <?php
+use xPDO\Transport\xPDOTransport;
+use MODX\Revolution\modX;
+use MODX\Revolution\Transport\modPackageBuilder;
 /**
  * MODX Dark THeme build script
  *

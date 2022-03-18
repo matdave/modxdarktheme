@@ -1,4 +1,6 @@
 <?php
+use xPDO\Transport\xPDOTransport;
+use MODX\Revolution\modX;
 /**
  * Ask if we set the new theme as current theme for the manager
  *
