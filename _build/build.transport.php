@@ -13,7 +13,7 @@ set_time_limit(0);
 
 define('PKG_NAME','MODX Dark Theme');
 define('PKG_NAMESPACE','modxdarktheme');
-define('PKG_VERSION','1.0.0');
+define('PKG_VERSION','2.0.0');
 define('PKG_RELEASE','pl');
 
 /* override with your own defines here (see build.config.sample.php) */

@@ -12,7 +12,7 @@
   padding: 10px 15px 10px 15px;
   position: relative;
   text-decoration: none;
-  /*transition: all 0.25s;*/
+  transition: background-color .2s ease-out;
   zoom: 1;
 
   /* .x-btn buttons are wrapped in an em tag */
@@ -32,7 +32,6 @@
     height: 16px;
     min-width: 100%;
     padding: 0; /* override extjs default theme styles */
-    vertical-align: middle;
 
     .ext-ie8 & {
       padding-top: 0; /* fix IE < 9 (overriding extjs default style) */
@@ -48,9 +47,9 @@
     &:before {
       @extend %pseudo-font;
       color: inherit;
-      content: $fa-var-caret-down;
+      content: fa-content($fa-var-caret-down);
       font-size: 14px;
-      margin-top: -7px; /* pull up half of height */
+      margin-top: 0;
       position: absolute; top: 50%; right: 0; /* vertically center the arrow */
     }
 
@@ -62,33 +61,28 @@
     }
   }
 
-  &.x-btn-over,
-  &:hover,
-  &.x-btn-focus,
-  &:focus {
-    background-color: $buttonBgHover;
-    box-shadow: $shadowBorderHover;
-    color: $buttonColorHover;
+  &.x-btn-focus:not(.x-btn-over) {
+      background: $buttonBg;
+      color: $buttonColor;
+  }
 
-    /*button {
-      color: inherit;
-    }*/
+  &.x-btn-over,
+  &:hover {
+    background-color: $lightGray;
+    box-shadow: $softGray;
+    color: $white;
   }
 
   &.x-btn-click,
   &:active {
-    background-color: $buttonBgActive;
-    box-shadow: $shadowBorderActive;
-    color: $buttonColorActive;
-
-    /*button {
-      color: inherit;
-    }*/
+    background-color: $lightGray;
+    box-shadow: $softGray;
+    color: $white;
   }
 
   &.x-btn-menu-active {
     .x-btn-split:before {
-      content: $fa-var-caret-up;
+      content: fa-content($fa-var-caret-up);
     }
   }
 
@@ -98,7 +92,7 @@
     background-color: $buttonBgDisabled;
     color: $buttonColorDisabled;
     box-shadow: $shadowBorderDisabled;
-    opacity: 0.6; /* extjs default theme is also 0.6 */
+    opacity: .6; /* extjs default theme is also 0.6 */
     filter: alpha(opacity=60); /* for IE <= 8 */
   }
 

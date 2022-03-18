@@ -5,7 +5,6 @@
 .modx-browser-tree {
   background: $lightBg;
   border-radius: $borderRadius;
-  box-shadow: $boxShadow;
 
   .x-window &,
   .modx-browser-rte & {
@@ -18,68 +17,80 @@
 .modx-browser-view-ct {
   background: $lightBg;
   border-radius: $borderRadius;
-  box-shadow: $boxShadow;
   font: $fontSmall;
 
   .x-window &,
   .modx-browser-rte & {
-      border-radius: 0;
-      box-shadow: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 
 .modx-browser-thumb-wrap {
-  border: 1px solid transparent;
   float: left;
-  margin: 4px 0 4px 4px;
+  margin: 5px;
   overflow: hidden;
-  padding: 4px;
-}
-.modx-browser-thumb-wrap.x-view-over {
-  border: 1px solid $brandHover;
-  padding: 4px;
-}
-.modx-browser-thumb-wrap.x-view-selected {
-  background: $brandSelectedBg;
-  border: 1px solid $brandSelectedColor;
-  padding: 4px;
-}
-.modx-browser-thumb-wrap.x-view-selected .modx-browser-thumb {
-  background: $lightBg;
-}
-.modx-browser-thumb-wrap.x-view-selected span {
-  color: $brandSelectedColor;
-}
-  .modx-browser-thumb {
-    border: 1px solid $borderColor;
-    height: 100px;
-    line-height: 100px;
-    padding: 5px;
-    text-align: center;
-    width: 100px;
-  }
-    .modx-browser-thumb img {
-      vertical-align: middle;
-      background-color: #ccc;
-      background-image: url($imgPath + 'modx-theme/transparency-pattern.png');
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+
+  &.x-view-over {
+    .modx-browser-placeholder {
+      color: $white;
     }
-  .modx-browser-thumb-wrap span {
-    display: block;
-    overflow: hidden;
-    text-align: center;
+
+    .modx-browser-thumb {
+      border: 1px dotted $darkGray;
+    }
   }
+
+  &.x-view-selected {
+    .modx-browser-placeholder {
+      color: $brandSelectedColor;
+    }
+
+    .modx-browser-thumb {
+      border: 1px solid $brandSelectedColor;
+    }
+  }
+}
+
+.modx-browser-thumb {
+  background: $lightBg;
+  border: 1px solid $borderColor;
+  height: 100px;
+  line-height: 100px;
+  padding: 5px;
+  width: 100px;
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    background-color: $silver;
+    background-image: url($imgPath + 'modx-theme/transparency-pattern.png');
+  }
+}
+
+.modx-browser-placeholder {
+  font-size: 14px;
+  color: $softGray;
+
+  .details & {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    font-size: 24px;
+    overflow: hidden;
+  }
+}
+
 .modx-browser-list-item {
   padding: 0 5px 0 5px;
-}
-.modx-browser-list-item.x-view-over > span {
-  background: $brandHover;
-}
-.modx-browser-list-item.x-view-selected > span {
-  background: $brandSelectedBg;
-  border-bottom: 1px solid $brandSelectedColor;
-  color: $brandSelectedColor;
-}
-  .modx-browser-list-item > span {
+
+  >span {
     background-position: center left !important;
     border-bottom: 1px solid $borderColor;
     clear: both;
@@ -87,21 +98,43 @@
     min-height: 16px;
     padding: 5px 0 5px 20px;
     position: relative;
-  }
-  .modx-browser-list-item > span:before {
-    font-size: 14px;
-    position: absolute; left: 2px;
-  }
-    .modx-browser-list-item > span span {
+
+    &:before {
+      font-size: 14px;
+      position: absolute;
+      left: 2px;
+    }
+
+    span {
       display: inline-block;
       font: $fontSmall;
-      padding-top: 2px;
     }
-    .modx-browser-list-item > span span.file-size,
-    .modx-browser-list-item > span span.image-size {
+
+    span.file-size {
       float: right;
       width: 13%;
     }
+
+    span.image-size {
+      float: right;
+      width: 13%;
+    }
+  }
+
+  &.x-view-over {
+    >span {
+      background: $lightestGray;
+    }
+  }
+
+  &.x-view-selected {
+    >span {
+      background: $lightestGray;
+      color: $brandSelectedColor;
+    }
+  }
+}
+
 .modx-browser-view-ct .loading-indicator {
   background-position: left;
   background-repeat: no-repeat;
@@ -123,19 +156,21 @@
   .x-toolbar-left {
 
     .x-toolbar-left-row {
-    /* we need 4 classes to override the !important height of extjs default theme */
+
+      /* we need 4 classes to override the !important height of extjs default theme */
       td.x-toolbar-cell {
         position: relative;
 
         &:before {
           @extend %pseudo-font;
 
-          content: $fa-var-clipboard;
+          content: fa-content($fa-var-clipboard);
           font-size: 14px;
-          margin-top: -7px; /* half of the height to center vertically with top 50% */
-          opacity: 0.6;
+          opacity: .6;
           filter: alpha(opacity=60); /* for IE <= 8 */
-          position: absolute; top: 50%; left: 0;
+          position: absolute;
+          top: 50%;
+          left: 0;
           text-align: center;
           width: 30px;
         }
@@ -146,10 +181,11 @@
         box-sizing: border-box;
         border-radius: 0;
         border: 0;
-        border-top: 1px solid #e4e4e4;
+        border-top: 1px solid $lightGray;
         margin: 0 !important;
         padding-left: 30px; /* for the icon */
-        width: 100%; height: 32px !important;
+        width: 100%;
+        height: 32px !important;
       }
     }
   }
@@ -158,7 +194,6 @@
 .modx-browser-details-ct {
   background: $lightBg;
   border-radius: $borderRadius;
-  box-shadow: $boxShadow;
 
   .x-window &,
   .modx-browser-rte & {
@@ -169,7 +204,7 @@
 }
 
 .modx-browser-detail-thumb {
-  color: $black;
+  color: $white;
   cursor: default;
   padding: 5px;
   position: relative;
@@ -180,20 +215,22 @@
     &:before {
       @extend %pseudo-font;
 
-      content: $fa-var-search;
+      content: fa-content($fa-var-search);
       font-size: 56px;
       margin-top: -28px; /* half of the height to center vertically with top 50% */
       opacity: 0;
       filter: alpha(opacity=0); /* for IE <= 8 */
-      position: absolute; top: 50%; left: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
       text-align: center;
       width: 100%;
-      text-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: opacity 0.25s;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: opacity .25s;
     }
 
     &:hover:before {
-      opacity: 0.6;
+      opacity: .6;
       filter: alpha(opacity=60); /* for IE <= 8 */
     }
   }
@@ -204,7 +241,7 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    background-color: #ccc;
+    background-color: $silver;
     background-image: url($imgPath + 'modx-theme/transparency-pattern.png');
   }
 }
@@ -216,7 +253,7 @@
   text-align: left;
 
   b {
-    color: #555;
+    color: $white;
     display: block;
     margin-bottom: 2px;
   }
@@ -236,12 +273,12 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    background-color: #ccc;
+    background-color: $silver;
     background-image: url($imgPath + 'modx-theme/transparency-pattern.png');
   }
 }
 
-@include media($mobile) {
+@include grid-media($desktop) {
   .modx-browser {
     top: 15px !important;
     max-height: 100% !important;

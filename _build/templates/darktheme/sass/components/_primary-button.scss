@@ -1,32 +1,35 @@
 %primary-button {
-  /* transition: all 0.25s; */
-
-  @include linear-gradient($buttonPrimaryBg1, $buttonPrimaryBg2, $fallback: $buttonPrimaryBg1);
-  box-shadow: none;
-  color: $buttonColorPrimary;
-
-  &.x-btn-focus,
-  &.x-btn-over,
-  &:hover {
-    @include linear-gradient($buttonPrimaryBg1Hover, $buttonPrimaryBg2Hover, $fallback: $buttonPrimaryBg1Hover);
+    transition: background-color .2s ease-out;
+    background: $green;
     box-shadow: none;
-    color: $buttonColorPrimaryHover;
-  }
+    color: $buttonColorPrimary;
 
-  &.x-btn-click,
-  &:active {
-    @include linear-gradient($buttonPrimaryBg1Active, $buttonPrimaryBg2Active, $fallback: $buttonPrimaryBg1Active);
-    box-shadow: none;
-    color: $buttonColorPrimaryActive;
-  }
+    &.x-btn-focus:not(.x-btn-over) {
+        background: $green;
+        color: $buttonColorPrimary;
+    }
 
-  &.x-item-disabled,
-  &.x-item-disabled:hover,
-  &.x-item-disabled:active {
-    @include linear-gradient($buttonPrimaryBg1, $buttonPrimaryBg2, $fallback: $buttonPrimaryBg1);
-    box-shadow: none;
-    color: $buttonColorPrimaryDisabled;
-    opacity: 0.6;
-    filter: alpha(opacity=60); /* for IE <= 8 */
-  }
+    &.x-btn-over,
+    &:hover {
+        background: $greener;
+        box-shadow: none;
+        color: $buttonColorPrimaryHover;
+    }
+
+    &.x-btn-click,
+    &:active {
+        background: $buttonPrimaryBgActive;
+        box-shadow: none;
+        color: $buttonColorPrimaryActive;
+    }
+
+    &.x-item-disabled,
+    &.x-item-disabled:hover,
+    &.x-item-disabled:active {
+        background: $green;
+        box-shadow: none;
+        color: $buttonColorPrimaryDisabled;
+        opacity: .6;
+        filter: alpha(opacity=60); /* for IE <= 8 */
+    }
 }

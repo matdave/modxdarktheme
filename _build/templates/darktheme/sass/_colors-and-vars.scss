@@ -1,7 +1,6 @@
-// Main colors
 $colorSplash: #00decc;
 $colorSplashLight: lighten($colorSplash, 42.5%); // unused
-$colorSplashMedium: #32AB9A;
+$colorSplashMedium: lighten($colorSplash, 75%);
 $colorSplashDark: darken($colorSplash, 20%);
 $colorSplashDesaturated: lighten(desaturate($colorSplash,100%), 20%); // unused
 $colorSplashContrast: #FFFFFF; // needs much more adaption, should be used as text color for elements with $colorSplash background
@@ -14,13 +13,35 @@ $softGray: #484f58;
 $mediumGray: #212432;
 $darkGray: #161b22;
 $darkestGray: #0d1117; // a blueish dark gray
-$white: #FFF;
+$white: #c9d1d9;
 $black: #010409; // generate the black from the $colorSplash
+$darkBlack: #000;
 $yellow: #FFEA80;
 $orange: #F49548;
 $red: #BE0000;
+$lighterRed: #FFEEEE;
 $green: #6CB24A;
+$greener: darken($green, 12%);
+$lightGreen: lighten($green, 50%);
+$lighterGreen: #EFFCF6;
 $blue: #3697cd; // default theme $colorSplash
+
+$osloGray: #868B8F;
+$doveGray: #686868;  ;
+$alabastersolid: #FAFAFA;
+$tundora: #444444;
+$scorpion: #606060;
+$mineShaft: #343434;
+$alto: #DFDFDF;
+$silver: #CCCCCC;
+$gallery: #EEEEEE;
+$wildSand: #F4F4F4;
+
+// Status Message
+$statusMessageBg: $green;
+$statusMessageText: $white;
+$statusMessageIconBg: $white;
+$statusMessageIconText: $green;
 
 // Brand colors
 $brandBg: $black;
@@ -37,29 +58,35 @@ $darkBg: $darkestGray;
 // Borders
 $borderColor: $black;
 $borderColorHover: $colorSplash;
+$borderColorGrayHover: $mediumGray;
 $borderColorFocus: darken($colorSplash, 6%);
 $borderColorActive: darken($colorSplash, 6%);
+$borderColorGrayActive: darken($mediumGray, 6%);
 $borderColorDisabled: $borderColor;
 $borderRadius: 3px;
 
 // Shadows
-$boxShadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+$boxShadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 $boxShadowBig: 0 0 15px 0 rgba(0,0,0,0.2);
 $shadowBorder: 0 0 0 1px $borderColor;
 $shadowBorderField: 0 0 0 1px $borderColor;
 $shadowBorderDark: 0 0 0 1px $softGray;
 $shadowBorderHover: 0 0 0 1px $borderColorHover;
+$shadowBorderGrayHover: 0 0 0 1px $borderColorGrayHover;
 $shadowBorderFocus: 0 0 0 1px $borderColorFocus;
 $shadowBorderActive: 0 0 0 1px $borderColorActive;
+$shadowBorderGrayActive: 0 0 0 1px $borderColorGrayActive;
 $shadowBorderDisabled: 0 0 0 1px $borderColorDisabled;
 
 // Grids
 $gridsorted: $darkestGray;
 $griddivider: $black;
-$gridrowalt: $darkGray;
+$gridrowalt: $darkestGray;
+$gridBorderColor: $borderColor;
 $gridHeaderTxtColor: $white;
 $gridHeaderBgColor: $darkGray;
 $gridHeaderBtnBgColor: $darkestGray;
+$gridHeaderBtnColor: $white;
 $gridHeaderBtnBgHoverColor: $black;
 
 // Form field colors
@@ -80,19 +107,14 @@ $buttonColorPrimary: $black;
 $buttonColorPrimaryHover: $black;
 $buttonColorPrimaryActive: $black;
 $buttonColorPrimaryDisabled: $black;
-$buttonPrimaryBg1: $primary1;
-$buttonPrimaryBg2: $primary2;
-$buttonPrimaryBg1Hover: darken($buttonPrimaryBg1, 6%);
-$buttonPrimaryBg2Hover: darken($buttonPrimaryBg2, 6%);
-$buttonPrimaryBg1Active: darken($buttonPrimaryBg1, 12%);
-$buttonPrimaryBg2Active: darken($buttonPrimaryBg2, 12%);
+$buttonPrimaryBgActive: darken($colorSplash, 12%);
 
 // Context menus
 $menuBg: $brandBg;
 $menuBorder: 1px solid $borderColor;
 $menuBorderRadius: $borderRadius;
 $menuBoxShadow: $boxShadow;
-$menuSelectedBg: #30759c;
+$menuSelectedBg: $lighterGray;
 $menuSelectedColor: $brandBg;
 $menuTextColor: $white;
 $menuSeparatorColor: $borderColor;
@@ -107,23 +129,33 @@ $dropdownBorder: $black;
 $treeText: $white;
 $tipText: $white;
 $mainText: $white;
-$headerText: $white;
-$treeColor: #828a94;
+$treeHeaderText: $white;
+$treeHeaderHeight: 57px;
+$treeHeaderBorder: 1px solid $borderColor;
+$treeHeaderBg: $black;
+$treeBg: $darkestGray;
+$treeBgSelected: $darkGray;
+$treeColor: $white;
 $treeColorDesaturated: lighten(desaturate($treeColor,100%), 25%);
 $treeColor_2: #728DA7;
 $treePseudoRootBg: $dropdownSelectedBg;
 $treePseudoRootColor: $dropdownTextColor;
 $treePseudoRootOverBg: $dropdownBg;
 $treePseudoRootOverColor: $dropdownTextColor;
+$treeFolderBg: transparent;
+$treeFolderColor: $white;
+$treeItemBg: $black;
+$treeItemColor: $white;
 
 $iconColor: $treeText;
-$unpublished: $treeText;
 
 $deactivatedTextColor: lighten($treeColor, 35%); // do not use 50% here - makes base color nearly invisible
 $disabledTextColor: $deactivatedTextColor;
 
-$hidden: lighten($treeText, 10%) !important;
-$unpubText: italic;
+$unpublished: lighten($treeText, 10%) !important;
+$hidden: $treeText;
+$unpubText: normal;
+$hiddenText: italic;
 // locked is already signaled with lock-icon, no need to use other semantic style here
 // as italic is used for "unpublished"
 $lockedText: inherit; // italic;
@@ -134,10 +166,9 @@ $delTextDeco: line-through;
 
 $treeDivider: #404040;
 
+$navbarWidth: 70px;
+
 // Top navigation colors
-$navbarBg: $darkestGray; // unused
-$navbarHover: $darkGray; // unused
-$navbarDrop: $navbarBg; // unused
 $navbarText: $white;
 $navbarBorder: $darkestGray;
 $subnavBg: $darkestGray;
@@ -149,7 +180,7 @@ $subnavDescriptionColor: #5ABCE5;
 
 $searchResultsBg: $subnavBg;
 $searchResultsBgHover: $subnavBgHover;
-$searchResultsHeadingColor: $subnavDescriptionColor;
+$searchResultsHeadingColor: $darkestGray;
 $searchResultsColor: $subnavTitleColor;
 
 // Tabs
@@ -158,10 +189,12 @@ $tabActiveBg: $darkestGray;
 $tabActiveBgHover: $darkGray;
 $tabActiveText: $colorSplashMedium;
 $tabInactiveBg: transparent;
-$tabInactiveBgHover: transparent;
 $tabInactiveText: $colorSplash;
+$tabInactiveBgHover: $darkGray;
+$tabInactiveTextHover: $colorSplash;
 $tabText: $colorSplash;
 $tabTextHover: $colorSplashDark;
+$leftbarTabActiveBg: $mainBg;
 
 // Windows
 $winHeaderBg: $darkestGray;
@@ -171,16 +204,14 @@ $winFooterBg: $darkestGray;
 $winFooterBorderColor: $darkGray;
 
 // Font stacks
-$bodyfonts: 'Helvetica Neue', Helvetica, Arial, Tahoma, sans-serif;
+$bodyfonts: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 $bodyFontSize: 13px;
-$altfonts: titilliumregular, $bodyfonts; // unused
-$altfontslight: titilliumlight, $bodyfonts; // unused
 $headfonts: $bodyfonts;
-$codefonts: "Courier New", Courier, monospace;
+$codefonts: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $tabFont: 14px $bodyfonts;
 $buttonfonts: $bodyfonts;
-$treePseudoRootFont: normal 14px/35px $headfonts;
-$treeNodeFont: normal 13px/22px $bodyfonts;
+$treePseudoRootFont: 500 14px/3 $headfonts;
+$treeNodeFont: normal 14px/2.25 $bodyfonts;
 $baseText:   normal 13px/1.4 $bodyfonts;
 $baseTextHeight: 13px * 1.4;
 $fontSmall:  normal 11px $bodyfonts;
@@ -188,23 +219,22 @@ $fontMedium: normal 12px $bodyfonts;
 $fontNormal: normal $bodyFontSize $bodyfonts;
 $fontNavbar: normal $bodyFontSize $headfonts;
 $fontH2:     normal 25px $headfonts;
-$fontH3:     bold 15px $headfonts;
+$fontH3:     550 15px $headfonts;
 
 // Responsive breakpoints
-$mobile: new-breakpoint(max-width 640px 4);
-$tabletP: new-breakpoint(max-width 768px 12);
-$desktop: new-breakpoint(max-width 960px 12);
-$tabletL: new-breakpoint(max-width 1024px 12);
-$cinema: new-breakpoint(max-width 1400px 12);
+$mobile:  (media: "screen and (max-width: 640px)", columns: 4);
+$tabletP: (media: "screen and (max-width: 768px)", columns: 12);
+$desktop: (media: "screen and (max-width: 960px)", columns: 12);
+$tabletM: (media: "screen and (max-width: 1024px)", columns: 12);
+$tabletL: (media: "screen and (max-width: 1140px)", columns: 12);
+$cinema:  (media: "screen and (max-width: 1400px)", columns: 12);
 
-$gtMobile: new-breakpoint(min-width 641px 12);
-$gtTabletP: new-breakpoint(min-width 769px 12);
-$gtDesktop: new-breakpoint(min-width 961px 12);
-$gtTabletL: new-breakpoint(min-width 1025px 12);
-$gtCinema: new-breakpoint(min-width 1401px 12);
+$gtMobile:  (media: "screen and (min-width: 641px)", columns: 12);
+$gtTabletP: (media: "screen and (min-width: 769px)", columns: 12);
+$gtDesktop: (media: "screen and (min-width: 961px)", columns: 12);
+$gtTabletM: (media: "screen and (min-width: 1025px)", columns: 12);
+$gtTabletL: (media: "screen and (min-width: 1141px)", columns: 12);
+$gtCinema:  (media: "screen and (min-width: 1401px)", columns: 12);
 
 // Path for background-images
 $imgPath: '../images/';
-
-// Max width
-$max-width: 1200px;

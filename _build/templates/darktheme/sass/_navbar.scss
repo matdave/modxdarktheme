@@ -1,362 +1,460 @@
-/* Main MODX Manager navbar */
-#modx-header {
-  background: rgb(63,72,80);
-  height: 55px;
-  max-height: 55px;
-  @include media($mobile) {
-    height:auto !important;
-  }
-}
-#modx-navbar {
-  @include background-image(linear-gradient(to right, darken(rgb(63,72,80), 15) 0%, darken(rgb(54,84,98), 15) 46%, darken(rgb(62,85,84), 15) 60%, darken(rgb(66,85,77), 15) 68%, darken(rgb(87,61,78), 15) 100%));
-  box-shadow: 0 2px 0 $borderColor;
-  height: 100%;
-  position: relative;
-  z-index: 20;
-  @include media($mobile) {
-    box-shadow:none;
+#modx-split-wrapper {
+  .x-border-layout-ct {
+    background: transparent;
   }
 }
 
-#modx-user-menu {
-  float: right;
-  margin-right: 15px;
+#modx-leftbar-tabs-xcollapsed {
+  display: none !important;
+}
+
+#modx-leftbar {
+  background-color: $treeBg;
+  z-index: 0;
+  min-width: 288px;
+
+  @include grid-media($gtDesktop) {
+    max-width: 50%;
+  }
+
+  .x-toolbar {
+    padding: 0 !important;
+    border: 0;
+  }
+}
+
+#modx-header {
+  background: $black;
+  max-width: $navbarWidth;
+  position: absolute;
+  z-index: 2;
+  height: 100%;
 }
 
 #modx-navbar {
   font-weight: bold;
   font: $fontNavbar;
-}
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
 
-#modx-topnav {
-  @extend %outer-container;
-  float: left;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  @include media($mobile) {
-    float:none;
+  .icon {
+    color: $white;
+    font-size: 20px;
+    line-height: 20px;
+    vertical-align: middle;
   }
+
+  li,
+  a {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  a {
+    cursor: pointer;
+    color: $navbarText;
+    display: block;
+    line-height: 12px;
+    font-size: 10px;
+    text-decoration: none;
+
+    & .description {
+      font-size: 9px;
+      opacity: .7;
+    }
+
+    & .icon, & .label, & .description {
+      width: 100%;
+      display: block;
+    }
+  }
+
   li {
-    border-right: 1px solid $navbarBorder;
+    a:hover {
+      opacity: .7;
+    }
+  }
+
+  #modx-user-menu a {
+    .label, .description, #user-username {
+      display: none;
+    }
+  }
+
+  #modx-manager-search-icon a,
+  #modx-leftbar-trigger a,
+  #modx-user-menu a {
+    padding: 12px 0;
+  }
+
+  #modx-topnav {
+    @extend %outer-container;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .top:not(#modx-manager-search-icon) {
+      border-top: 1px solid $navbarBorder;
+    }
+
+    >li:not(#modx-home-dashboard):not(#modx-manager-search-icon):not(#modx-leftbar-trigger) {
+      >a {
+        display: block;
+        position: relative;
+        padding: 12px 0;
+      }
+    }
+  }
+
+  #modx-user-menu {
+    margin-top: auto;
+
+    #user-avatar {
+      img {
+        border-radius: 20px;
+        height: 40px;
+        width: 40px;
+        display: block;
+        margin: auto;
+      }
+    }
+
+    #limenu-user a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  #modx-home-dashboard {
+    border-radius: $borderRadius;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 10px;
+  }
+
+  #modx-site-info {
+    font-size: 10px;
+
+    .site_name {
+      color: $white;
+    }
+
+    .full_appname {
+      color: $white;
+    }
+
+    >.info-item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
-#modx-navbar li,
-#modx-navbar a {
-  background: transparent;
-  float: left;
-  margin: 0;
-  padding: 0;
-  position: relative;
+#modx-leftbar-trigger {
+  transition: all .2s ease;
+
+  .icon {
+    &:before {
+      content: fa-content($fa-var-arrow-left);
+    }
+  }
+
+  &.collapsed {
+    .icon:before {
+      content: fa-content($fa-var-arrow-right) !important;
+    }
+  }
 }
 
-#modx-navbar li:hover {
-  z-index: 10000;
-}
+#modx-footer {
+  .modx-subnav {
+    border: 1px solid $navbarBorder;
+    box-shadow: $boxShadowBig;
+    border-radius: $borderRadius;
+    background: $subnavBg;
+    display: block;
+    box-sizing: border-box;
+    list-style: none;
+    position: absolute;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .15s ease;
 
-#modx-navbar a {
-  color: $navbarText;
-  cursor: pointer;
-  display: block;
-  line-height: 55px;
-  padding: 0 15px;
-  text-decoration: none;
-}
+    li {
+      display: block;
+      border-radius: $borderRadius;
+      background: $subnavBg;
+      margin: 0;
+      padding: 0;
+      position: relative;
 
-#modx-topnav {
-  /* refactor :not selector to work in IE8 */
-  > li:not(#modx-home-dashboard):not(#modx-manager-search-icon) {
-    > a {
-      @include media($desktop) {
-        text-indent: -99999em;
-        display: block;
-        height: 100%;
-        position: relative;
-        width: 1em;
+      &:not(:first-child) {
+        border-top: 1px solid $subnavSepBorder;
+      }
 
+      &:hover {
         &:after {
-          @include absolute-corners;
-          @include awesome-font;
-          text-indent: 0;
+          border-right-color: $subnavBgHover;
+        }
+      }
+
+      &.sub {
+        &:after {
+          @extend %pseudo-font;
+          position: absolute;
+          color: $subnavDescriptionColor;
+          content: fa-content($fa-var-caret-right);
+          font-size: 14px;
+          margin-top: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 10px;
+        }
+      }
+
+      a {
+        border-radius: $borderRadius;
+        background-color: $subnavBg;
+        color: $subnavTitleColor;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 0;
+        padding: 8px 15px;
+        text-shadow: none;
+        width: 270px;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+
+        .icon {
+          display: inline-block;
+          font-size: 18px;
+          opacity: .07;
+          padding-left: 5px;
+        }
+
+        span {
+          color: $subnavDescriptionColor;
           display: block;
-          text-align: center;
-          line-height: 55px;
-          font-size: 16px;
+          float: none;
+          font-size: 12px;
+          font-weight: normal;
+          line-height: 1.3;
+          margin-top: 6px;
+          width: 100%;
+        }
+
+        &:hover {
+          background: $subnavBgHover;
+          border-top-color: $subnavBorder;
+          border-bottom-color: $subnavBorder;
+          color: $subnavTitleColor;
+
+          .description {
+            color: darken($subnavDescriptionColor, 16%);
+          }
         }
       }
     }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modx-subsubnav {
+      border: 1px solid $navbarBorder;
+      box-shadow: $boxShadowBig;
+      border-radius: $borderRadius;
+      background: $lightBg;
+      list-style: none;
+      position: absolute;
+      z-index: 24;
+      &-arrow {
+        border: 8px solid transparent;
+        border-right-color: #FFF;
+        content: " ";
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 10010;
+        display: none;
+      }
+      &.active {
+        + .modx-subsubnav-arrow {
+          display: block;
+        }
+      }
+      @include grid-media($gtDesktop) {
+        opacity: 0;
+        visibility: hidden;
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    &-arrow {
+      right: 100%;
+      border: 12px solid transparent;
+      border-right-color: $subnavBg;
+      content: ' ';
+      position: absolute;
+      pointer-events: none;
+      margin-top: -6px;
+    }
   }
-  @include media($desktop) {
-    #limenu-site > a:after { content:$fa-var-file-text-o; /* "\f0f6" */ }
-    #limenu-media > a:after { content:$fa-var-picture-o; /* "\f03e" */ }
-    #limenu-components > a:after { content:$fa-var-cube; /* "\f1b2" */  }
-    #limenu-manage > a:after { content:$fa-var-sliders; /* "\f1de" */ }
-  }
-}
 
-#user-username {
-  @include media($tabletL) {
-    display: none;
-  }
-}
-
-#limenu-user {
-  @include media($tabletL) {
-    height: 55px;
-  }
-}
-
-#modx-navbar .top {
-  padding-right: 15px;
-
-  &:after {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid rgb(96,114,124);
-    position: absolute;
-    content: ' ';
-    right: 12px;
-    top: 26px;
-  }
-}
-
-#modx-navbar .sub {
-  &:after {
-    border: 5px solid transparent;
-    border-left: 5px solid rgb(96,114,124);
-    position: absolute;
-    content: ' ';
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-#modx-user-menu li.top > a,
-#modx-topnav li.top > a {
-  cursor: default;
-}
-
-#modx-user-menu li.top > a.top-link,
-#modx-topnav li.top > a.top-link {
-  cursor: pointer;
-}
-
-#modx-topnav > li.top > a, #modx-user-menu > li.top > a {
-  border-left:1px solid transparent;
-  border-right:1px solid transparent;
-}
-
-#modx-topnav > li.top:hover > a, #modx-user-menu > li.top:hover > a {
-  /*padding-bottom: 1px;*/ /* prevent the top nav li right border to bleed into the content */
-  z-index: 10001;
-}
-
-#modx-navbar li:hover a {
-  &:hover.modx-help {
-    color: $colorSplash;
+  // custom styles for language menu
+  #language .modx-subsubnav {
+    max-height: calc(100vh - 12px);
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
-#modx-navbar #modx-user-menu ul.modx-subnav {
-  left: auto;
-  right: 0;
-}
-
-#modx-navbar ul.modx-subnav {
-  border-radius: 0 $borderRadius $borderRadius $borderRadius;
-  border: 1px solid $navbarBorder;
-  border-top: 0;
-  float: left;
-  left: -1px; /* be in line with the topnav item left border */
-  line-height: 1.1;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 54px;
-  z-index: 10000;
-  opacity: 0;
-  filter: alpha(opacity=0); /* for IE <= 8 */
-  visibility: hidden;
-
-  ul.modx-subsubnav {
-    border-radius: 0 $borderRadius $borderRadius $borderRadius;
-    border: 1px solid $navbarBorder;
-    border-top: 0;
-    display: none;
-    list-style: none;
-    padding-left: 0;
-    position: absolute; left: 270px; top: -1px;
-    z-index: 24;
+@include grid-media($desktop) {
+  #modx-header {
+    position: relative;
+    min-width: 100%;
+    height: auto !important;
   }
-}
 
-#modx-navbar #modx-home-dashboard {
-  background-image: url($imgPath + 'modx-icon-color.svg'),none;
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-size: 40px 40px;
-  width: 50px;
-  border-right: none;
-  margin-left: 21px;
-  image-rendering: optimizequality;
-}
-#user-avatar img {
-  border-radius: 20px;
-  margin: 8px 10px 0 0;
-  height: 40px;
-  width: 40px;
-  display: block;
-  float: left;
-}
-/*#user-username {
+  #modx-navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
 
-}*/
+    #modx-headnav {
+      order: 1;
+      width: 50%;
 
-#modx-navbar #modx-home-dashboard a {
-  overflow: hidden;
-  padding: 0;
-  text-indent: -9999px;
-  width: 100%;
-}
+      a {
+        line-height: initial !important;
+      }
 
-#modx-navbar #modx-home-dashboard:hover a {
-  background-color: transparent;
-}
+      img {
+        max-width: 35px;
+      }
+    }
 
-/*#modx-navbar #modx-home-dashboard:hover {
-  background-color: $navbarHover;
-}*/
+    #modx-topnav {
+      width: 100%;
+      order: 0;
+    }
 
-#modx-navbar li:hover ul.modx-subnav {
-  visibility: visible;
-  opacity: 1;
-  filter: alpha(opacity=100); /* for IE <= 8 */
-  transition: all .15s ease;
-  transition-delay: .5s;
-}
+    #modx-user-menu {
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      width: 50%;
+      order: 2;
+      margin-top: 0;
+    }
 
-#modx-navbar ul.modx-subnav li {
-  background: $subnavBg;
-  border-top: 1px solid $subnavSepBorder; /* have to border on top to prevent double borders on bottom */
-  border-right: 0; /* do not inherit the right border from topnav li's */
-  clear: both;
-  margin: 0;
-  padding: 0;
-}
+    &>ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
 
-/*
-#modx-navbar ul.modx-subnav li:first-child a {
-  @include background(linear-gradient($navbarHover, $navbarDrop) top repeat);
-}
-*/
+      >li {
+        flex-basis: 50px;
+      }
+    }
 
-/*
-#modx-navbar ul.modx-subnav li a {
-  border-top:1px solid $navbarDrop;
-  border-bottom:1px solid $navbarDrop;
-}
-*/
+    #modx-site-info {
+      display: none;
+    }
 
-#modx-navbar ul.modx-subnav li {
-  a {
-    background-color: $subnavBg;
-    color: $subnavTitleColor;
-    float: left;
-    font-weight: bold;
-    line-height: 1.5;
-    margin: 0;
-    padding: 8px 15px;
-    text-shadow: none;
-    width: 240px;
+    #modx-home-dashboard {
+      margin: 0;
+      padding: 5px;
+    }
+  }
 
-    &:hover {
-      background: $subnavBgHover;
-      border-top-color: $subnavBorder;
-      border-bottom-color: $subnavBorder;
-      color: $white;
+  #modx-leftbar-trigger {
+    .icon {
+      padding: 3px 4px;
 
-      .description {
-          color: lighten($subnavDescriptionColor,16%);
+      &:before {
+        content: fa-content($fa-var-arrow-up);
+      }
+    }
+
+    &.collapsed {
+      .icon:before {
+        content: fa-content($fa-var-arrow-down) !important;
       }
     }
   }
-  &:first-child a {
-    border-top-width: 0;
+
+  #modx-footer {
+    .modx-subnav {
+      min-width: 300px;
+
+      .description {
+        display: none;
+      }
+
+      li {
+        border-radius: 0;
+
+        &.sub:after {
+          display: none;
+        }
+
+        a {
+          width: auto;
+          white-space: nowrap;
+        }
+      }
+
+      .modx-subsubnav {
+        position: initial;
+        left: auto;
+        box-shadow: none;
+        display: block;
+        max-height: initial !important;
+        overflow-y: initial !important;
+
+        li>a {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .modx-subnav-arrow {
+      display: none;
+    }
+
+    // overflow for long subsubnav
+    .modx-subnav {
+      max-height: calc(100vh - 109px);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   }
-  &:last-child a {
-    border-bottom-width: 0;
-  }
 }
 
-#modx-navbar ul.modx-subnav li a span {
-  color: $subnavDescriptionColor;
-  display: block;
-  float: none;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 1.3;
-  margin-top: 6px;
-  width: 100%;
-}
-
-#modx-navbar ul.modx-subnav li:first-child,
-#modx-navbar ul.modx-subnav li:first-child a {
-  border-radius: 0 $borderRadius 0 0;
-}
-
-#modx-navbar ul.modx-subnav ul li:first-child,
-#modx-navbar ul.modx-subnav ul li:first-child a {
-  border-radius: 0 $borderRadius 0 0;
-}
-
-#modx-navbar ul.modx-subnav ul li:last-child,
-#modx-navbar ul.modx-subnav ul li:last-child a {
-  border-radius: 0 0 $borderRadius 0;
-}
-
-#modx-navbar ul.modx-subnav ul ul li:last-child,
-#modx-navbar ul.modx-subnav ul ul li:last-child a {
-  border-radius: 0 0 $borderRadius $borderRadius;
-}
-
-#modx-navbar ul.modx-subnav li:hover ul ul,
-#modx-navbar ul.modx-subnav ul li:hover ul ul,
-#modx-navbar ul.modx-subnav ul ul li:hover ul ul {
-  display: none;
-}
-
-#modx-navbar ul.modx-subnav li:hover ul,
-#modx-navbar ul.modx-subnav ul li:hover ul,
-#modx-navbar ul.modx-subnav ul ul li:hover ul,
-#modx-navbar ul.modx-subnav ul ul ul li:hover ul {
-  display: block;
-}
-
-.ext-ie7 #modx-header {
-  position: relative;
-  z-index: 10;
-}
-
-#modx-site-info {
-  padding: 12px 5px 0 !important;
-  border-right: 0 !important;
-  width: 175px;
-
-  @include media($tabletL) {
-    display: none;
-  }
-
-  .site_name { color:#fff }
-  .full_appname {
-    color:#ccc;
-    font-style: italic;
-  }
-  > .info-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@media (max-height: 520px) {
+  #modx-footer {
+    .modx-subnav {
+      .description {
+        display: none;
+      }
+    }
   }
 }
