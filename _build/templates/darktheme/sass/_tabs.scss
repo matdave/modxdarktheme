@@ -303,7 +303,7 @@ ul.x-tab-strip-bottom {
     padding-bottom: 10000px !important; /* dirty hack to make vertical tabs container stretch to bottom */
     width: 168px !important; /* aligns the vertical tabs with the TVs tab left edge, will not work that nicely with non-english langs */
 
-    @include media($mobile) {
+    @include grid-media($mobile) {
       & {
         width: 80px !important;
       }
@@ -334,7 +334,7 @@ ul.x-tab-strip-bottom {
           padding: 10px 15px 10px 15px;
           transition: background-color 0.25s, color 0.25s;
 
-          @include media($mobile) {
+          @include grid-media($mobile) {
             & {
               padding: 8px;
             }
@@ -353,7 +353,7 @@ ul.x-tab-strip-bottom {
             width: 168px; /* make the active li 1px more wide to cover the containers right border, this makes the right border on inactive tabs necessary as the whole tab-strip wrap gets wider */
           }
 
-          @include media($mobile) {
+          @include grid-media($mobile) {
             & {
               width: 80px !important;
             }

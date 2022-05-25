@@ -199,11 +199,11 @@ jumping around */
 }
 
 .x-viewport {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		overflow-y:auto;
 	}
 	body {
-		@include media($mobile) {
+		@include grid-media($mobile) {
 			height:auto;
 		}
 	}
@@ -213,7 +213,7 @@ jumping around */
   height: 100%; //maybe this should be min-height instead? - jp
   width: 100%;
   background: $mainBg;
-  @include media($mobile) {
+  @include grid-media($mobile) {
 	  height:auto;
   }
 }
@@ -223,14 +223,14 @@ jumping around */
 }
 
 #modx-resource-main-left, #modx-resource-main-right, #modx-page-settings-left, #modx-page-settings-right {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		width:100% !important;
 	}
 }
 
 #modx-template-form, #modx-chunk-form, #modx-tv-tabs, #modx-snippet-form, #modx-panel-plugin {
 	.main-wrapper {
-		@include media($mobile) {
+		@include grid-media($mobile) {
 			width:100% !important;
 			padding:0;
 			> .x-panel-bwrap {
@@ -240,7 +240,7 @@ jumping around */
 	}
 }
 
-@include media($mobile) {
+@include grid-media($mobile) {
   .x-toolbar-ct {
     display: block;
 
@@ -290,7 +290,7 @@ jumping around */
 
 #modx-tree-panel-usergroup {
   .main-wrapper {
-    @include media($mobile) {
+    @include grid-media($mobile) {
       width: 100% !important;
       max-width: 100%;
       position: relative;
@@ -301,7 +301,7 @@ jumping around */
 }
 
 .x-window {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		width:auto !important;
 		max-width:100vh !important;
 		left:0.5em !important;
@@ -329,13 +329,13 @@ jumping around */
 }
 
 .x-column-inner > .x-column ~ .x-column {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		margin-left:0 !important;
 	}
 }
 
 .x-form-item label.x-form-item-label[for="modx-import-base-path"], .x-form-item label.x-form-item-label[for="modx-import-resource-class"], .x-form-item label.x-form-item-label[for="modx-import-element"], .x-form-item label.x-form-item-label[for="modx-import-parent"], .x-form-item label.x-form-item-label[for="modx-import-allowed-extensions"], #modx-import-base-path {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		width:auto !important;
 		float:none;
 	}
@@ -348,7 +348,7 @@ jumping around */
 }
 
 #x-form-el-modx-import-base-path, #x-form-el-modx-import-resource-class, #x-form-el-modx-import-allowed-extensions, #x-form-el-modx-import-element {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		width:100% !important;
 		padding-left:0 !important;
 	}
@@ -387,7 +387,7 @@ a.x-grid-link:hover, a.x-grid-link:focus{ text-decoration: underline; }
 /* Error container */
 
 #modx-content {
-  @include media($mobile) {
+  @include grid-media($mobile) {
     position:relative;
     width:auto !important;
     top:auto !important;
@@ -425,7 +425,7 @@ a.x-grid-link:hover, a.x-grid-link:focus{ text-decoration: underline; }
     }
   }
   .x-panel-body {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 	  height: auto !important;
 	  width: auto !important;
 	}
@@ -922,7 +922,8 @@ a.x-grid-link:hover, a.x-grid-link:focus{ text-decoration: underline; }
 
 /* status messages */
 .modx-status-msg {
-  background: #f4f4f4;
+  background: $darkBg;
+  color: $white;
   border-radius: 5px;
   left: 70%;
   /*filter: alpha(opacity=80);*/
@@ -1783,11 +1784,11 @@ iframe[classname="x-hidden"] {
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 0 1rem fade-out($darkestGray,.8);
+  box-shadow: inset 0 0 0 1rem fade-out($softGray,.8);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 0 0 0 1rem fade-out($darkestGray,.7);
+  box-shadow: inset 0 0 0 1rem fade-out($softGray,.7);
 }
 
 ::-webkit-resizer, ::-webkit-scrollbar-corner {

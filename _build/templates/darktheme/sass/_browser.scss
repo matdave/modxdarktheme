@@ -241,7 +241,7 @@
   }
 }
 
-@include media($mobile) {
+@include grid-media($mobile) {
   .modx-browser {
     top: 15px !important;
     max-height: 100% !important;

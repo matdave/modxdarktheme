@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 			bourbon: {
                 files: [{
                     src: '**/*',
-                    cwd: '<%= dirs.lib %>bourbon/app/assets/stylesheets',
+                    cwd: '<%= dirs.lib %>bourbon/core',
                     dest: '<%= dirs.scss %>/bourbon',
                     expand: true,
                     nonull: true
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 			neat: {
                 files: [{
                     src: '**/*',
-                    cwd: '<%= dirs.lib %>bourbon-neat/app/assets/stylesheets',
+                    cwd: '<%= dirs.lib %>bourbon-neat/core',
                     dest: '<%= dirs.scss %>/neat',
                     expand: true,
                     nonull: true

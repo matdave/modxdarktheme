@@ -23,7 +23,10 @@
 }
 
 %outer-container {
-  @include outer-container;
+  @include grid-container;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
 }
 
 @mixin awesome-font() {
@@ -33,7 +36,7 @@
     font-weight: normal;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;    
+    -moz-osx-font-smoothing: grayscale;
 }
 
 %pseudo-font {
@@ -45,7 +48,7 @@
     top:0;
     left:0;
     right:0;
-    bottom:0;    
+    bottom:0;
 }
 
 %absolute-corners {
@@ -171,30 +174,33 @@
   }
 }
 
+
 @mixin responsive-table-bar() {
-  table:not(#modx-tree-panel-usergroup table, #modx-grid-lexicon table, #modx-panel-property-sets) { // #janky
-    display:block;
+  table:not(#modx-tree-panel-usergroup table, #modx-grid-lexicon table, #modx-panel-property-sets) {
+    display: block;
+
     tbody {
-      display:block;
+      display: block;
+
       tr {
-        display:block;
-        @include outer-container;
-        @include display(flex);
-        @include flex-wrap(wrap);
+        @include grid-container;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+
         td {
-          width:auto;
-          display:inline-block;
-          float:left;
-          margin:5px;
-          padding:0;
-        @include flex-grow(1);
-        &:first-of-type {
-          @include flex-basis(100%);
-        }
-        .x-btn {
-          margin-left:3px;
-          margin-right:3px;
-        }
+          display: inline-block;
+          float: left;
+          padding: 0 !important;
+          margin-bottom: 1em;
+          flex-grow: 1;
+
+          .x-btn {
+            margin-left: 3px;
+            margin-right: 3px;
+          }
         }
       }
     }

@@ -3,17 +3,17 @@
   background: rgb(63,72,80);
   height: 55px;
   max-height: 55px;
-  @include media($mobile) {
+  @include grid-media($mobile) {
     height:auto !important;
   }
 }
 #modx-navbar {
-  @include background-image(linear-gradient(to right, darken(rgb(63,72,80), 15) 0%, darken(rgb(54,84,98), 15) 46%, darken(rgb(62,85,84), 15) 60%, darken(rgb(66,85,77), 15) 68%, darken(rgb(87,61,78), 15) 100%));
+  background: $brandBg;
   box-shadow: 0 2px 0 $borderColor;
   height: 100%;
   position: relative;
   z-index: 20;
-  @include media($mobile) {
+  @include grid-media($mobile) {
     box-shadow:none;
   }
 }
@@ -34,7 +34,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  @include media($mobile) {
+  @include grid-media($mobile) {
     float:none;
   }
   li {
@@ -68,7 +68,7 @@
   /* refactor :not selector to work in IE8 */
   > li:not(#modx-home-dashboard):not(#modx-manager-search-icon) {
     > a {
-      @include media($desktop) {
+      @include grid-media($desktop) {
         text-indent: -99999em;
         display: block;
         height: 100%;
@@ -87,7 +87,7 @@
       }
     }
   }
-  @include media($desktop) {
+  @include grid-media($desktop) {
     #limenu-site > a:after { content:$fa-var-file-text-o; /* "\f0f6" */ }
     #limenu-media > a:after { content:$fa-var-picture-o; /* "\f03e" */ }
     #limenu-components > a:after { content:$fa-var-cube; /* "\f1b2" */  }
@@ -96,13 +96,13 @@
 }
 
 #user-username {
-  @include media($tabletL) {
+  @include grid-media($tabletL) {
     display: none;
   }
 }
 
 #limenu-user {
-  @include media($tabletL) {
+  @include grid-media($tabletL) {
     height: 55px;
   }
 }
@@ -345,7 +345,7 @@
   border-right: 0 !important;
   width: 175px;
 
-  @include media($tabletL) {
+  @include grid-media($tabletL) {
     display: none;
   }
 

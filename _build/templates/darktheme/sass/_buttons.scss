@@ -268,7 +268,7 @@ button {
   border-radius: 0 0 5px 5px;
   z-index: 11; /* prevent panel collaps arrows from overlapping */
 
-  @include media($mobile) {
+  @include grid-media($mobile) {
     position: relative;
     top: auto;
     left: auto;
@@ -289,7 +289,7 @@ button {
 }
 
 .tab-panel-wrapper .x-panel-tbar {
-  @include media($mobile) {
+  @include grid-media($mobile) {
       @include responsive-table-bar;
     .x-toolbar-left, .x-toolbar-right {
         input {
@@ -303,13 +303,13 @@ button {
 }
 
 html.ext-strict body #modx-container .x-small-editor .x-form-text { // #janky
-  @include media($mobile) {
+  @include grid-media($mobile) {
     height:auto !important;
   }
 }
 
 #modx-grid-element-properties {
-  @include media($mobile) {
+  @include grid-media($mobile) {
     @include responsive-table-bar;
     .x-toolbar-left {
       margin-bottom:0;
@@ -510,7 +510,7 @@ html.ext-strict body #modx-container .x-small-editor .x-form-text { // #janky
       display: inline-block;
       position: relative;
 
-      @include media($mobile) {
+      @include grid-media($mobile) {
         width: 30px !important;
       }
 

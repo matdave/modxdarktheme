@@ -1,5 +1,5 @@
 .x-toolbar {
-  background-color: $darkestGray;
+  background-color: $black;
   background-image: none;
   border-color: $borderColor;
 
@@ -215,7 +215,7 @@
   background-image: url($imgPath + 'modx-theme/editor/tb-sprite.gif');
 }
 .x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
-  background-color: transparent;
+  background-color: $black;
   border-bottom-color: transparent;
 }
 .x-panel-noborder .x-panel-bbar-noborder .x-toolbar {

@@ -1,12 +1,12 @@
 // Main colors
-$colorSplash: #00decc;
+$colorSplash: #3999cf;
 $colorSplashLight: lighten($colorSplash, 42.5%); // unused
-$colorSplashMedium: #32AB9A;
+$colorSplashMedium: #5298b1;
 $colorSplashDark: darken($colorSplash, 20%);
 $colorSplashDesaturated: lighten(desaturate($colorSplash,100%), 20%); // unused
-$colorSplashContrast: #FFFFFF; // needs much more adaption, should be used as text color for elements with $colorSplash background
-$primary1: #32AB9A;
-$primary2: #00948E;
+$colorSplashContrast: #e1e1e1; // needs much more adaption, should be used as text color for elements with $colorSplash background
+$primary1: #5298b1;
+$primary2: #1d6f9b;
 $lightestGray: #484f58;
 $lighterGray: #484f58;
 $lightGray: #484f58;
@@ -14,7 +14,7 @@ $softGray: #484f58;
 $mediumGray: #212432;
 $darkGray: #161b22;
 $darkestGray: #0d1117; // a blueish dark gray
-$white: #FFF;
+$white: #e1e1e1;
 $black: #010409; // generate the black from the $colorSplash
 $yellow: #FFEA80;
 $orange: #F49548;
@@ -29,10 +29,10 @@ $brandSelectedBg: darken($brandHover, 3%);
 $brandSelectedColor: $colorSplash;
 
 // Backgrounds
-$mainBg: $black;
+$mainBg: $darkestGray;
 $lightBg: $darkGray;
 $mediumBg: $darkestGray;
-$darkBg: $darkestGray;
+$darkBg: $black;
 
 // Borders
 $borderColor: $black;
@@ -65,7 +65,7 @@ $gridHeaderBtnBgHoverColor: $black;
 // Form field colors
 $coreFieldBg: $darkestGray;
 $coreFieldLabelColor: $white;
-$coreFieldDescColor: $white;
+$coreFieldDescColor: darken($white, 40%);
 
 // Buttons
 $buttonBg: $black;
@@ -98,17 +98,17 @@ $menuTextColor: $white;
 $menuSeparatorColor: $borderColor;
 
 // ComboBox dropdown menus
-$dropdownBg: $black;
-$dropdownSelectedBg: $darkestGray;
+$dropdownBg: $darkestGray;
+$dropdownSelectedBg: $black;
 $dropdownTextColor: $white;
 $dropdownBorder: $black;
 
 // Tree menus
-$treeText: $white;
+$treeText: $lightestGray;
 $tipText: $white;
 $mainText: $white;
 $headerText: $white;
-$treeColor: #828a94;
+$treeColor: $white;
 $treeColorDesaturated: lighten(desaturate($treeColor,100%), 25%);
 $treeColor_2: #728DA7;
 $treePseudoRootBg: $dropdownSelectedBg;
@@ -141,7 +141,7 @@ $navbarDrop: $navbarBg; // unused
 $navbarText: $white;
 $navbarBorder: $darkestGray;
 $subnavBg: $darkestGray;
-$subnavBgHover: $darkGray;
+$subnavBgHover: $black;
 $subnavBorder: $darkestGray;
 $subnavSepBorder: $subnavBorder;
 $subnavTitleColor: #C9D4E1;
@@ -154,7 +154,7 @@ $searchResultsColor: $subnavTitleColor;
 
 // Tabs
 $tabStripBg: transparent;
-$tabActiveBg: $darkestGray;
+$tabActiveBg: $black;
 $tabActiveBgHover: $darkGray;
 $tabActiveText: $colorSplashMedium;
 $tabInactiveBg: transparent;
@@ -191,17 +191,19 @@ $fontH2:     normal 25px $headfonts;
 $fontH3:     bold 15px $headfonts;
 
 // Responsive breakpoints
-$mobile: new-breakpoint(max-width 640px 4);
-$tabletP: new-breakpoint(max-width 768px 12);
-$desktop: new-breakpoint(max-width 960px 12);
-$tabletL: new-breakpoint(max-width 1024px 12);
-$cinema: new-breakpoint(max-width 1400px 12);
+$mobile:  (media: "screen and (max-width: 640px)", columns: 4);
+$tabletP: (media: "screen and (max-width: 768px)", columns: 12);
+$desktop: (media: "screen and (max-width: 960px)", columns: 12);
+$tabletM: (media: "screen and (max-width: 1024px)", columns: 12);
+$tabletL: (media: "screen and (max-width: 1140px)", columns: 12);
+$cinema:  (media: "screen and (max-width: 1400px)", columns: 12);
 
-$gtMobile: new-breakpoint(min-width 641px 12);
-$gtTabletP: new-breakpoint(min-width 769px 12);
-$gtDesktop: new-breakpoint(min-width 961px 12);
-$gtTabletL: new-breakpoint(min-width 1025px 12);
-$gtCinema: new-breakpoint(min-width 1401px 12);
+$gtMobile:  (media: "screen and (min-width: 641px)", columns: 12);
+$gtTabletP: (media: "screen and (min-width: 769px)", columns: 12);
+$gtDesktop: (media: "screen and (min-width: 961px)", columns: 12);
+$gtTabletM: (media: "screen and (min-width: 1025px)", columns: 12);
+$gtTabletL: (media: "screen and (min-width: 1141px)", columns: 12);
+$gtCinema:  (media: "screen and (min-width: 1401px)", columns: 12);
 
 // Path for background-images
 $imgPath: '../images/';

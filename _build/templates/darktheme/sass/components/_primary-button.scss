@@ -1,21 +1,20 @@
 %primary-button {
   /* transition: all 0.25s; */
-
-  @include linear-gradient($buttonPrimaryBg1, $buttonPrimaryBg2, $fallback: $buttonPrimaryBg1);
+  background: $buttonPrimaryBg1;
   box-shadow: none;
   color: $buttonColorPrimary;
 
   &.x-btn-focus,
   &.x-btn-over,
   &:hover {
-    @include linear-gradient($buttonPrimaryBg1Hover, $buttonPrimaryBg2Hover, $fallback: $buttonPrimaryBg1Hover);
+    background: $buttonPrimaryBg1Hover;
     box-shadow: none;
     color: $buttonColorPrimaryHover;
   }
 
   &.x-btn-click,
   &:active {
-    @include linear-gradient($buttonPrimaryBg1Active, $buttonPrimaryBg2Active, $fallback: $buttonPrimaryBg1Active);
+    background: $buttonPrimaryBg1Active;
     box-shadow: none;
     color: $buttonColorPrimaryActive;
   }
@@ -23,7 +22,7 @@
   &.x-item-disabled,
   &.x-item-disabled:hover,
   &.x-item-disabled:active {
-    @include linear-gradient($buttonPrimaryBg1, $buttonPrimaryBg2, $fallback: $buttonPrimaryBg1);
+    background: $buttonPrimaryBg1;
     box-shadow: none;
     color: $buttonColorPrimaryDisabled;
     opacity: 0.6;

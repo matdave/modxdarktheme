@@ -3,7 +3,7 @@
 
 #modx-leftbar {
   /* the main container + bg behind the tabs */
-  @include media($mobile) {
+  @include grid-media($mobile) {
     position:relative !important;
 	top:auto !important;
 	left:auto !important;
@@ -12,7 +12,7 @@
   }
 
   .x-plain-body {
-	  @include media($mobile) {
+	  @include grid-media($mobile) {
 		  height:auto !important;
 	  }
   }
@@ -59,11 +59,11 @@
 }
 
 #modx-leftbar {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		margin:1em auto;
 	}
 	#modx-leftbar-tabpanel { // janky
-		@include media($mobile) {
+		@include grid-media($mobile) {
 			width:auto !important;
 			margin:0 auto;
 			padding:0.5em;
@@ -126,7 +126,7 @@
 
 /* tree menu splitter / tree expander */
 #modx-leftbar-tabs-xsplit, #modx-leftbar-tabs-xcollapsed {
-	@include media($mobile) {
+	@include grid-media($mobile) {
 		position:relative;
 		top:auto !important;
 		left:auto !important;
@@ -137,7 +137,7 @@
 		height:auto !important;
 	}
 	.x-layout-mini {
-		@include media($mobile) {
+		@include grid-media($mobile) {
 			position: relative;
 			right: auto;
 			width: auto !important;
@@ -155,7 +155,7 @@
 
 #modx-leftbar-tabs-xsplit, #modx-leftbar-tabs-xcollapsed {
 	.x-layout-mini {
-		@include media($mobile) {
+		@include grid-media($mobile) {
 			left:0 !important;
 			&:after {
 				border:none;
@@ -176,7 +176,7 @@
     &:after {
       border-right: 0;
       border-left: 5px solid $treeColor;
-	  @include media($mobile) {
+	  @include grid-media($mobile) {
 		  border:none;
 	  }
     }

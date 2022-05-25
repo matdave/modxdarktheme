@@ -2,7 +2,7 @@
 #modx-manager-search-icon{
   a{
     padding-left: 0;
-    @include media($tabletL) {
+    @include grid-media($tabletL) {
       padding-left:10px; padding-right: 10px;
     }
   }
@@ -32,7 +32,7 @@
     visibility: visible;
   }
 
-  @include media($mobile) {
+  @include grid-media($mobile) {
     padding-right:25px;
     top:auto;
     left:0;
@@ -44,11 +44,11 @@
   }
 
   .x-form-field-wrap {
-    @include media($mobile) {
+    @include grid-media($mobile) {
       width:auto !important;
-      @include display(flex);
+      display: flex;
       #modx-uberbar {
-        @include flex-grow(1);
+        flex-grow: 1;
       }
       .x-form-arrow-trigger {
         position:relative;
@@ -70,30 +70,30 @@
     position: absolute;
     top: -20px;
     left: 235px;
-    @include media($tabletL) {
+    @include grid-media($tabletL) {
       left: 60px;
     }
-    @include media($mobile) {
+    @include grid-media($mobile) {
         left:15px;
     }
     border: 11px solid transparent;
     border-bottom: 11px solid $searchResultsBg;
   }
 
-  /*@include media($gtDesktop) {
+  /*@include grid-media($gtDesktop) {
     min-width:255px;
   }
 
   > {
     .x-form-field-trigger-wrap {
-      @include media($desktop) {
+      @include grid-media($desktop) {
         max-width:260px !important;
       }
     }
   }*/
   .x-form-text {
     background: none; /* prevent white searchfield background */
-  @include media($mobile) {
+  @include grid-media($mobile) {
     width:auto !important;
   }
   }
@@ -166,7 +166,7 @@
   width: 457px !important; height: auto !important;
   z-index: 15 !important; /* show beneath subnav and modals */
 
-  @include media($mobile) {
+  @include grid-media($mobile) {
     left:0 !important;
   }
   .loading-indicator{
@@ -191,7 +191,7 @@
     margin: 12px 0 0;
     overflow: auto;
     width: 100% !important;
-  @include media($mobile) {
+  @include grid-media($mobile) {
     height:auto !important;
     line-height:4em;
     .section {
