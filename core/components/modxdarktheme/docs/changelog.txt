@@ -1,1 +1,1 @@
-Initial Build
+Color fixes and QoL improvements

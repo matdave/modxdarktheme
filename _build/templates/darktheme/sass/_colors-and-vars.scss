@@ -1,8 +1,8 @@
-$colorSplash: #00decc;
-$colorSplashLight: lighten($colorSplash, 42.5%); // unused
+$colorSplash: #3999cf;
+$colorSplashLight: darken($colorSplash, 42.5%); // unused
 $colorSplashMedium: lighten($colorSplash, 75%);
-$colorSplashDark: darken($colorSplash, 20%);
-$colorSplashDesaturated: lighten(desaturate($colorSplash,100%), 20%); // unused
+$colorSplashDark: lighten($colorSplash, 20%);
+$colorSplashDesaturated: darken(desaturate($colorSplash,100%), 20%); // unused
 $colorSplashContrast: #FFFFFF; // needs much more adaption, should be used as text color for elements with $colorSplash background
 $primary1: #32AB9A;
 $primary2: #00948E;
@@ -21,8 +21,8 @@ $orange: #F49548;
 $red: #BE0000;
 $lighterRed: #FFEEEE;
 $green: #6CB24A;
-$greener: darken($green, 12%);
-$lightGreen: lighten($green, 50%);
+$greener: lighten($green, 12%);
+$lightGreen: darken($green, 50%);
 $lighterGreen: #EFFCF6;
 $blue: #3697cd; // default theme $colorSplash
 
@@ -44,24 +44,24 @@ $statusMessageIconBg: $white;
 $statusMessageIconText: $green;
 
 // Brand colors
-$brandBg: $black;
-$brandHover: $darkestGray;
-$brandSelectedBg: darken($brandHover, 3%);
+$brandBg: $darkestGray;
+$brandHover: $black;
+$brandSelectedBg: lighten($brandHover, 3%);
 $brandSelectedColor: $colorSplash;
 
 // Backgrounds
-$mainBg: $black;
+$mainBg: $darkestGray;
 $lightBg: $darkGray;
 $mediumBg: $darkestGray;
-$darkBg: $darkestGray;
+$darkBg: $black;
 
 // Borders
-$borderColor: $black;
+$borderColor: $darkestGray;
 $borderColorHover: $colorSplash;
 $borderColorGrayHover: $mediumGray;
-$borderColorFocus: darken($colorSplash, 6%);
-$borderColorActive: darken($colorSplash, 6%);
-$borderColorGrayActive: darken($mediumGray, 6%);
+$borderColorFocus: lighten($colorSplash, 6%);
+$borderColorActive: lighten($colorSplash, 6%);
+$borderColorGrayActive: lighten($mediumGray, 6%);
 $borderColorDisabled: $borderColor;
 $borderRadius: 3px;
 
@@ -79,35 +79,35 @@ $shadowBorderGrayActive: 0 0 0 1px $borderColorGrayActive;
 $shadowBorderDisabled: 0 0 0 1px $borderColorDisabled;
 
 // Grids
-$gridsorted: $darkestGray;
-$griddivider: $black;
-$gridrowalt: $darkestGray;
+$gridsorted: $darkGray;
+$griddivider: $darkestGray;
+$gridrowalt: $darkGray;
 $gridBorderColor: $borderColor;
 $gridHeaderTxtColor: $white;
 $gridHeaderBgColor: $darkGray;
-$gridHeaderBtnBgColor: $darkestGray;
+$gridHeaderBtnBgColor: $darkGray;
 $gridHeaderBtnColor: $white;
-$gridHeaderBtnBgHoverColor: $black;
+$gridHeaderBtnBgHoverColor: $darkestGray;
 
 // Form field colors
-$coreFieldBg: $darkestGray;
+$coreFieldBg: $black;
 $coreFieldLabelColor: $white;
 $coreFieldDescColor: $white;
 
 // Buttons
-$buttonBg: $black;
+$buttonBg: $darkestGray;
 $buttonBgHover: $colorSplash;
-$buttonBgActive: darken($colorSplash, 6%);
-$buttonBgDisabled: $black;
+$buttonBgActive: lighten($colorSplash, 6%);
+$buttonBgDisabled: $darkestGray;
 $buttonColor: $white;
-$buttonColorHover: $black;
-$buttonColorActive: $black;
-$buttonColorDisabled: darken($buttonColor, 20%);
-$buttonColorPrimary: $black;
-$buttonColorPrimaryHover: $black;
-$buttonColorPrimaryActive: $black;
-$buttonColorPrimaryDisabled: $black;
-$buttonPrimaryBgActive: darken($colorSplash, 12%);
+$buttonColorHover: $darkestGray;
+$buttonColorActive: $darkestGray;
+$buttonColorDisabled: lighten($buttonColor, 20%);
+$buttonColorPrimary: $darkestGray;
+$buttonColorPrimaryHover: $darkestGray;
+$buttonColorPrimaryActive: $darkestGray;
+$buttonColorPrimaryDisabled: $darkestGray;
+$buttonPrimaryBgActive: lighten($colorSplash, 12%);
 
 // Context menus
 $menuBg: $brandBg;
@@ -123,7 +123,7 @@ $menuSeparatorColor: $borderColor;
 $dropdownBg: $black;
 $dropdownSelectedBg: $darkestGray;
 $dropdownTextColor: $white;
-$dropdownBorder: $black;
+$dropdownBorder: $darkestGray;
 
 // Tree menus
 $treeText: $white;
@@ -132,11 +132,11 @@ $mainText: $white;
 $treeHeaderText: $white;
 $treeHeaderHeight: 57px;
 $treeHeaderBorder: 1px solid $borderColor;
-$treeHeaderBg: $black;
-$treeBg: $darkestGray;
-$treeBgSelected: $darkGray;
+$treeHeaderBg: $darkestGray;
+$treeBg: $darkGray;
+$treeBgSelected: $black;
 $treeColor: $white;
-$treeColorDesaturated: lighten(desaturate($treeColor,100%), 25%);
+$treeColorDesaturated: darken(desaturate($treeColor,100%), 25%);
 $treeColor_2: #728DA7;
 $treePseudoRootBg: $dropdownSelectedBg;
 $treePseudoRootColor: $dropdownTextColor;
@@ -144,15 +144,15 @@ $treePseudoRootOverBg: $dropdownBg;
 $treePseudoRootOverColor: $dropdownTextColor;
 $treeFolderBg: transparent;
 $treeFolderColor: $white;
-$treeItemBg: $black;
+$treeItemBg: $darkGray;
 $treeItemColor: $white;
 
 $iconColor: $treeText;
 
-$deactivatedTextColor: lighten($treeColor, 35%); // do not use 50% here - makes base color nearly invisible
+$deactivatedTextColor: darken($treeColor, 35%); // do not use 50% here - makes base color nearly invisible
 $disabledTextColor: $deactivatedTextColor;
 
-$unpublished: lighten($treeText, 10%) !important;
+$unpublished: darken($treeText, 10%) !important;
 $hidden: $treeText;
 $unpubText: normal;
 $hiddenText: italic;
@@ -160,7 +160,7 @@ $hiddenText: italic;
 // as italic is used for "unpublished"
 $lockedText: inherit; // italic;
 
-$delTextColor: fade-out(darken(lighten(desaturate($red,50%), 33%), 25%), 0.5) !important;
+$delTextColor: fade-out(lighten(darken(desaturate($red,50%), 33%), 25%), 0.5) !important;
 $delTextStyle: normal;
 $delTextDeco: line-through;
 
@@ -185,7 +185,7 @@ $searchResultsColor: $subnavTitleColor;
 
 // Tabs
 $tabStripBg: transparent;
-$tabActiveBg: $darkestGray;
+$tabActiveBg: $darkGray;
 $tabActiveBgHover: $darkGray;
 $tabActiveText: $colorSplashMedium;
 $tabInactiveBg: transparent;
