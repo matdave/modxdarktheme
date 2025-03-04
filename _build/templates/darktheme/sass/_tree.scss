@@ -334,7 +334,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-within {
     .modx-tree-node-btn-create {
       opacity: 1.0;
     }
@@ -434,7 +435,7 @@
 #modx-leftbar .icon,
 .x-tree-node
 
-/*.modx-tree-node-tool-ct*/
+  /*.modx-tree-node-tool-ct*/
 .icon {
   background: none;
   border: 0;
@@ -988,14 +989,15 @@
 #modx-leftbar-tabpanel__modx-trash-link {
   .icon {
     opacity: .5;
-    &:hover {
-      color: $red;
-    }
   }
 
   &.active {
     .icon {
       opacity: 1;
+    }
+
+    &:hover .icon {
+      color: $red;
     }
   }
 }

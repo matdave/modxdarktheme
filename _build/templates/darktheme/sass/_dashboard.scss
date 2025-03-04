@@ -178,7 +178,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       .action-buttons {
         button {
           opacity: 1;

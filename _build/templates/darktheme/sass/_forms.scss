@@ -1,3 +1,49 @@
+.modx-tv {
+  .resizable {
+    &:hover {
+      &::before,
+      &::after {
+        background-color: rgba($mediumGray, 0.25);
+        color: $mediumGray;
+      }
+    }
+    &::before,
+    &::after {
+      @extend %pseudo-font;
+      position: absolute;
+      right: 0;
+      margin-right: 0.25%;
+      text-align: center;
+      background-color: rgba($mediumGray, 0.15);
+      color: scale-color($color: $mediumGray, $lightness: 20%);
+      pointer-events: none;
+      width: 15px;
+      z-index: 2;
+      font-size: smaller;
+    }
+    &::before {
+      content: fa-content($fa-var-angle-up);
+      bottom: 12px;
+      height: 7px;
+      line-height: 0.9;
+    }
+    &::after {
+      content: fa-content($fa-var-angle-down);
+      bottom: 4px;
+      height: 8px;
+      line-height: 0.6;
+      border-bottom-right-radius: 3px;
+    }
+    textarea {
+      resize: vertical;
+    }
+  }
+  /* use default manager font for TV textareas to have unified look across TVs */
+  .x-form-textarea:not(div) {
+    font-family: inherit;
+  }
+}
+
 textarea {
   overflow: auto;
 }
@@ -7,11 +53,6 @@ textarea.x-form-field,
   display: block; /* make the field description (below) stick to the bottom correctly */
   font-family: $codefonts;
   padding: 5px; /* override standard extjs theme */
-}
-
-/* use default manager font for TV textareas to have unified look across TVs */
-.modx-tv .x-form-textarea:not(div) {
-  font-family: inherit;
 }
 
 /* general class that can be applied to any form field that should display code font */
@@ -26,7 +67,7 @@ textarea[name="introtext"],
 }
 
 .x-form-text,
-/* this screws up clear cache modal #shame */
+  /* this screws up clear cache modal #shame */
 textarea.x-form-field,
 .x-form-textarea {
   max-width: 100%;
@@ -73,6 +114,7 @@ input::-moz-focus-inner {
   margin: 0;
   outline: 0 none; /* prevent firefox from creating ugly dotted outlines */
   position: relative; /* boundary for absolutely positioned elements */
+  z-index: 1;
 
   /* general styles for form labels, paddings for various form layouts are handled below */
   label.x-form-item-label {
@@ -120,12 +162,12 @@ input::-moz-focus-inner {
         height: 16px;
       }
       &.modx-field-reset {
-          &::before {
-            content: fa-content($fa-var-undo-alt);
-          }
-          &:hover::before {
-            color: $green;
-          }
+        &::before {
+          content: fa-content($fa-var-undo-alt);
+        }
+        &:hover::before {
+          color: $green;
+        }
       }
       &.modx-field-clear {
         &::before {
@@ -176,6 +218,8 @@ input::-moz-focus-inner {
 
     img {
       display: block;
+      max-width: 400px;
+      max-height: 400px;
     }
   }
 
@@ -359,6 +403,11 @@ input::-moz-focus-inner {
   font-size: 12px;
   font-style: italic;
   margin: .4em 0 0 0;
+  transition: color 0.25s;
+
+  &:hover {
+    color: scale-color($coreFieldDescColor, $lightness: -50%);
+  }
 
   &.toggle-slider-above {
     margin: .3em 0;
@@ -407,35 +456,37 @@ input::-moz-focus-inner {
   }
 
   .copy-this {
-      color: scale-color($blue, $lightness: -5%, $saturation: -40%);
-      background-color: scale-color($blue, $lightness: 92%, $saturation: -15%);
-      &:hover {
-          background-color: scale-color($blue, $lightness: 87%, $saturation: 5%);
-          color: scale-color($blue, $lightness: -35%);
-          cursor: pointer;
-          &::after {
-              @extend %pseudo-font;
-              content: fa-content($fa-var-copy);
-              color: scale-color($blue, $saturation: -40%);
-              display: inherit;
-              margin-left: .5em;
-          }
-          &:active {
-              color: $white;
-              &::after {
-                  color: $white;
-              }
-          }
+    color: scale-color($blue, $lightness: -5%, $saturation: -40%);
+    background-color: scale-color($blue, $lightness: 92%, $saturation: -15%);
+    position: relative;
+    &:hover {
+      background-color: scale-color($blue, $lightness: 87%, $saturation: 5%);
+      color: scale-color($blue, $lightness: -35%);
+      cursor: pointer;
+      &::after {
+        @extend %pseudo-font;
+        content: fa-content($fa-var-copy);
+        color: scale-color($blue, $saturation: -40%);
+        position: absolute;
+        margin-left: 0.5em;
+        cursor: default;
       }
+      &:active {
+        color: $white;
+        &::after {
+          color: $white;
+        }
+      }
+    }
   }
   .feedback {
-      margin-left: .75em;
-      color: scale-color($blue, $lightness: -35%);
-      font-style: normal;
-      &.item-copied {
-          opacity: 1;
-          transition: opacity 1.5s;
-      }
+    margin-left: 1.4rem;
+    color: scale-color($blue, $lightness: -35%);
+    font-style: normal;
+    &.item-copied {
+      opacity: 1;
+      transition: opacity 1.5s;
+    }
   }
 
   a {
@@ -641,10 +692,10 @@ input::-moz-focus-inner {
 
     .ux-datetime-date,
     .ux-datetime-time {
-        vertical-align: top;
-        .x-form-invalid-msg {
-            white-space: normal;
-        }
+      vertical-align: top;
+      .x-form-invalid-msg {
+        white-space: normal;
+      }
     }
 
     .ux-datetime-date {
@@ -702,25 +753,21 @@ input::-moz-focus-inner {
 
 .modx-tv-type-listbox-multiple {
 
-    .x-form-field-wrap {
-        border-color: #fff;
-        .x-form-text {
-            border: 1px solid $borderColor;
-            margin: -1px;
-            &.x-form-focus {
-                border-color: $mediumGray;
-            }
-        }
+  .x-form-field-wrap {
+    border-color: #fff;
+    .x-form-text {
+      border: 1px solid $borderColor;
+      margin: -1px;
+      &.x-form-focus {
+        border-color: $mediumGray;
+      }
     }
+  }
 }
 
 
 #x-form-el-modx-user-photo .x-form-file-trigger:before {
   content: fa-content($fa-var-file-image);
-}
-
-#x-form-el-modx-tv-locked {
-  margin-top: 1em;
 }
 
 /* .x-form-field-wrap */
@@ -737,6 +784,22 @@ input::-moz-focus-inner {
 
   .x-form-label-top & {
     padding: 0;
+  }
+
+  .x-toolbar .x-toolbar-cell & {
+    .x-form-cb-label {
+      padding-left: 1.9em;
+      &::before {
+        color: $silver;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        &::before {
+          color: $mediumGray;
+        }
+      }
+    }
   }
 
   .x-form-cb-label,
@@ -845,8 +908,18 @@ input::-moz-focus-inner {
 
 /* .x-form-check-wrap */
 /* Special checboxes for resources and tv configs */
-#modx-resource-tabs,
-#modx-tv-tabs {
+#modx-chunk-tabs,
+#modx-plugin-tabs,
+#modx-resource-tabs .display-switch,
+#modx-snippet-tabs,
+#modx-template-tabs,
+#modx-tv-tabs .display-switch,
+#modx-tv-editor-tabs,
+.display-switch {
+
+  &.space-before {
+    margin-top: 0.75rem;
+  }
 
   .x-form-check-wrap,
   .x-fieldset-checkbox-toggle legend,
@@ -941,6 +1014,10 @@ input::-moz-focus-inner {
   }
 }
 
+.switch-container {
+  padding-top: 1.6rem;
+}
+
 .x-form-check-group,
 .x-form-radio-group {
   /*overflow: visible; /* do not cut off the bottom of the input elements */
@@ -958,8 +1035,8 @@ input::-moz-focus-inner {
   }
   /* applies to new xcheckboxgroup custom checkbox group */
   &.aggregated-group {
-      padding-left: 1em;
-      padding-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -1418,11 +1495,11 @@ input::-moz-focus-inner {
     right: 3px;
   }
 
-    &.modx-superboxselect {
-        .x-combo-list-inner {
-            margin-left: 0;
-        }
+  &.modx-superboxselect {
+    .x-combo-list-inner {
+      margin-left: 0;
     }
+  }
 }
 
 .x-combo-list-hd {
