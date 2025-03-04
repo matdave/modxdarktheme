@@ -16,7 +16,7 @@ set_time_limit(0);
 
 define('PKG_NAME','MODX Dark Theme');
 define('PKG_NAMESPACE','modxdarktheme');
-define('PKG_VERSION','2.1.0');
+define('PKG_VERSION','2.2.0');
 define('PKG_RELEASE','pl');
 
 /* override with your own defines here (see build.config.sample.php) */
@@ -62,7 +62,7 @@ $modx->log(modX::LOG_LEVEL_INFO, 'Adding file resolvers to category...');
 
 $vehicle->resolve('file',array(
     'source' => $sources['templates'],
-    'target' => "return MODX_BASE_PATH . 'manager/templates/';",
+    'target' => "return MODX_MANAGER_PATH . 'templates/';",
 ));
 $vehicle->resolve('php',array(
     'source' => $sources['resolvers'] . 'resolve.settings.php',

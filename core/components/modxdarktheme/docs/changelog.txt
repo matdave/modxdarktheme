@@ -1,1 +1,2 @@
-Color fixes and QoL improvements
+update for modx 3.1.x
+allow for custom manager path
